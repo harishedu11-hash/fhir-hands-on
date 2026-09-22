@@ -1,0 +1,19 @@
+{
+  "resourceType": "Basic",
+  "id": "level1-foundation-demo",
+  "code": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/basic-resource-type",
+        "code": "study-example",
+        "display": "Level 1 Foundation Demo"
+      }
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/preferred-language-fluency",
+      "valueString": "Fluent"
+    }
+  ]
+}
