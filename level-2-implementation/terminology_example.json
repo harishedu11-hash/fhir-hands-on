@@ -1,0 +1,27 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "triage-acuity-codes",
+  "url": "http://example.org/fhir/CodeSystem/triage-acuity",
+  "version": "1.0.0",
+  "name": "TriageAcuityCodes",
+  "title": "Emergency Triage Acuity Levels",
+  "status": "active",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "immediate",
+      "display": "Immediate (Level 1)",
+      "definition": "Threat to life, limb, or imminent danger"
+    },
+    {
+      "code": "urgent",
+      "display": "Urgent (Level 2)",
+      "definition": "Potentially serious condition requiring prompt assessment"
+    },
+    {
+      "code": "non-urgent",
+      "display": "Non-urgent (Level 3)",
+      "definition": "Routine emergency presentation"
+    }
+  ]
+}
