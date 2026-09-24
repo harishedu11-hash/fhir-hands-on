@@ -1,0 +1,29 @@
+{
+  "resourceType": "ValueSet",
+  "id": "1005",
+  "url": "http://example.org/fhir/ValueSet/triage-acuity-v2",
+  "name": "TriageAcuityValueSetV2",
+  "title": "Emergency Triage Acuity Value Set V2",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://example.org/fhir/CodeSystem/triage-acuity",
+        "concept": [
+          {
+            "code": "immediate",
+            "display": "Immediate (Level 1)"
+          },
+          {
+            "code": "urgent",
+            "display": "Urgent (Level 2)"
+          },
+          {
+            "code": "non-urgent",
+            "display": "Non-urgent (Level 3)"
+          }
+        ]
+      }
+    ]
+  }
+}
