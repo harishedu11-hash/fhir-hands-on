@@ -1,0 +1,28 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "custom-clinical-study",
+  "url": "http://example.org/fhir/StructureDefinition/custom-clinical-study",
+  "name": "CustomClinicalStudyProfile",
+  "title": "Custom Clinical Study Profile",
+  "status": "draft",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Basic",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Basic",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Basic",
+        "path": "Basic",
+        "short": "A clinical study resource constrained for hospital trials"
+      },
+      {
+        "id": "Basic.code",
+        "path": "Basic.code",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}
