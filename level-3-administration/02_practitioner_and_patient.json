@@ -1,0 +1,70 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:practitioner-harish",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "http://hl7.org.in/fhir/medical-council-id",
+            "value": "TN-MCI-2024-8849"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Mohankumar",
+            "given": ["Harish"],
+            "prefix": ["Dr."]
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-rajesh",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://apollohospitals.org/mrn",
+            "value": "MRN-CHN-2026-0042"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Kumar",
+            "given": ["Rajesh"]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+91-9876543210",
+            "use": "mobile"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1988-06-15",
+        "generalPractitioner": [
+          {
+            "reference": "urn:uuid:practitioner-harish"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    }
+  ]
+}
