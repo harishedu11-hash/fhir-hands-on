@@ -1,0 +1,270 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:allergy-penicillin",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "type": "allergy",
+        "category": ["medication"],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "764146007",
+              "display": "Penicillin"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/1007"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "247472004",
+                    "display": "Hives"
+                  }
+                ]
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:history-father-mi",
+      "resource": {
+        "resourceType": "FamilyMemberHistory",
+        "status": "completed",
+        "patient": {
+          "reference": "Patient/1007"
+        },
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "FTH",
+              "display": "father"
+            }
+          ]
+        },
+        "condition": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "22298006",
+                  "display": "Myocardial infarction"
+                }
+              ]
+            },
+            "outcome": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "419620001",
+                  "display": "Death"
+                }
+              ]
+            },
+            "onsetAge": {
+              "value": 52,
+              "unit": "yr",
+              "system": "http://unitsofmeasure.org",
+              "code": "a"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "FamilyMemberHistory"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-ecg",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "164847006",
+              "display": "12-lead electrocardiogram"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "encounter": {
+          "reference": "Encounter/1008"
+        },
+        "performedDateTime": "2026-09-25T10:35:00Z",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/1006"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:risk-ascvd",
+      "resource": {
+        "resourceType": "RiskAssessment",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "occurrenceDateTime": "2026-09-25T11:15:00Z",
+        "basis": [
+          {
+            "reference": "Observation/1009"
+          },
+          {
+            "reference": "urn:uuid:history-father-mi"
+          }
+        ],
+        "prediction": [
+          {
+            "outcome": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "42343007",
+                  "display": "Congestive heart failure"
+                }
+              ]
+            },
+            "probabilityDecimal": 0.148,
+            "qualitativeRisk": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/risk-probability",
+                  "code": "moderate",
+                  "display": "Moderate likelihood"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RiskAssessment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:impression-er",
+      "resource": {
+        "resourceType": "ClinicalImpression",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "encounter": {
+          "reference": "Encounter/1008"
+        },
+        "effectiveDateTime": "2026-09-25T11:30:00Z",
+        "assessor": {
+          "reference": "Practitioner/1006"
+        },
+        "investigation": [
+          {
+            "code": {
+              "text": "Initial acute workup"
+            },
+            "item": [
+              {
+                "reference": "Observation/1009"
+              },
+              {
+                "reference": "urn:uuid:proc-ecg"
+              },
+              {
+                "reference": "urn:uuid:risk-ascvd"
+              }
+            ]
+          }
+        ],
+        "summary": "Hypertensive emergency ruled out; essential hypertension stage 2 requiring pharmacological control and outpatient cardiology follow-up."
+      },
+      "request": {
+        "method": "POST",
+        "url": "ClinicalImpression"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:issue-bp-target",
+      "resource": {
+        "resourceType": "DetectedIssue",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "HIGHAT",
+              "display": "High Atherosclerotic Risk for Blood Pressure Range"
+            }
+          ]
+        },
+        "severity": "moderate",
+        "patient": {
+          "reference": "Patient/1007"
+        },
+        "identifiedDateTime": "2026-09-25T11:35:00Z",
+        "implicated": [
+          {
+            "reference": "urn:uuid:risk-ascvd"
+          },
+          {
+            "reference": "MedicationRequest/1011"
+          }
+        ],
+        "detail": "Patient cardiovascular risk profile warrants strict blood pressure target below 130/80 mmHg within 3 months."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DetectedIssue"
+      }
+    }
+  ]
+}
