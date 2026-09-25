@@ -1,0 +1,68 @@
+{
+  "resourceType": "Encounter",
+  "status": "in-progress",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "EMER",
+    "display": "emergency"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "50849002",
+          "display": "Emergency room admission"
+        }
+      ]
+    }
+  ],
+  "priority": {
+    "coding": [
+      {
+        "system": "http://example.org/fhir/CodeSystem/triage-acuity",
+        "code": "urgent",
+        "display": "Urgent (Level 2)"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/1007",
+    "display": "Rajesh Kumar"
+  },
+  "participant": [
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "ATND",
+              "display": "attender"
+            }
+          ]
+        }
+      ],
+      "individual": {
+        "reference": "Practitioner/1006",
+        "display": "Dr. Harish Mohankumar"
+      }
+    }
+  ],
+  "period": {
+    "start": "2026-09-25T10:00:00Z"
+  },
+  "serviceProvider": {
+    "reference": "Organization/1004",
+    "display": "Apollo Multispeciality Hospital"
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/1005",
+        "display": "Emergency Trauma Bay 1"
+      },
+      "status": "active"
+    }
+  ]
+}
