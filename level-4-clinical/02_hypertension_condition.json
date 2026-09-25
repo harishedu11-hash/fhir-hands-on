@@ -1,0 +1,74 @@
+{
+  "resourceType": "Condition",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed",
+        "display": "Confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "24484000",
+        "display": "Severe"
+      }
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "38341003",
+        "display": "Hypertensive disorder"
+      }
+    ],
+    "text": "Essential Hypertension, Acute Presentation"
+  },
+  "subject": {
+    "reference": "Patient/1007",
+    "display": "Rajesh Kumar"
+  },
+  "encounter": {
+    "reference": "Encounter/1008"
+  },
+  "onsetDateTime": "2026-09-25T10:15:00Z",
+  "recordedDate": "2026-09-25T10:20:00Z",
+  "asserter": {
+    "reference": "Practitioner/1006",
+    "display": "Dr. Harish Mohankumar"
+  },
+  "evidence": [
+    {
+      "detail": [
+        {
+          "reference": "Observation/1009",
+          "display": "Blood pressure systolic & diastolic (158/96 mmHg)"
+        }
+      ]
+    }
+  ]
+}
