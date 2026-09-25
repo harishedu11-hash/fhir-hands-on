@@ -1,0 +1,297 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:medknowledge-amlodipine",
+      "resource": {
+        "resourceType": "MedicationKnowledge",
+        "status": "active",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197361",
+              "display": "Amlodipine 5 MG Oral Tablet"
+            }
+          ]
+        },
+        "doseForm": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385055001",
+              "display": "Tablet dose form"
+            }
+          ]
+        },
+        "synonym": [
+          "Norvasc",
+          "Amlodipine Besylate"
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationKnowledge"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dispense-amlodipine",
+      "resource": {
+        "resourceType": "MedicationDispense",
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197361",
+              "display": "Amlodipine 5 MG Oral Tablet"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "authorizingPrescription": [
+          {
+            "reference": "MedicationRequest/1011"
+          }
+        ],
+        "quantity": {
+          "value": 14,
+          "unit": "TAB",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+          "code": "TAB"
+        },
+        "daysSupply": {
+          "value": 14,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        },
+        "whenHandedOver": "2026-09-25T11:45:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationDispense"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:admin-amlodipine",
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197361",
+              "display": "Amlodipine 5 MG Oral Tablet"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "context": {
+          "reference": "Encounter/1008"
+        },
+        "effectiveDateTime": "2026-09-25T12:00:00Z",
+        "request": {
+          "reference": "MedicationRequest/1011"
+        },
+        "dosage": {
+          "text": "1 tablet (5 mg) administered orally with water",
+          "route": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "260548002",
+                "display": "Oral"
+              }
+            ]
+          },
+          "dose": {
+            "value": 5,
+            "unit": "mg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationAdministration"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:statement-fishoil",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "444405007",
+              "display": "Fish oil"
+            }
+          ],
+          "text": "Omega-3 Fish Oil 1000 mg softgel"
+        },
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "effectiveDateTime": "2026-09-25T12:05:00Z",
+        "dateAsserted": "2026-09-25T12:05:00Z",
+        "informationSource": {
+          "reference": "Patient/1007"
+        },
+        "dosage": [
+          {
+            "text": "1 softgel daily with meals"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationStatement"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm-influenza",
+      "resource": {
+        "resourceType": "Immunization",
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/1007"
+        },
+        "encounter": {
+          "reference": "Encounter/1008"
+        },
+        "occurrenceDateTime": "2026-09-25T12:15:00Z",
+        "primarySource": true,
+        "site": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "368205008",
+              "display": "Left deltoid muscle"
+            }
+          ]
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "78421000",
+              "display": "Intramuscular"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 0.5,
+          "unit": "mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Immunization"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm-eval-flu",
+      "resource": {
+        "resourceType": "ImmunizationEvaluation",
+        "status": "completed",
+        "patient": {
+          "reference": "Patient/1007"
+        },
+        "date": "2026-09-25T12:20:00Z",
+        "targetDisease": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "6142004",
+              "display": "Influenza"
+            }
+          ]
+        },
+        "immunizationEvent": {
+          "reference": "urn:uuid:imm-influenza"
+        },
+        "doseStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status",
+              "code": "valid",
+              "display": "Valid"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ImmunizationEvaluation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm-rec-pneumo",
+      "resource": {
+        "resourceType": "ImmunizationRecommendation",
+        "patient": {
+          "reference": "Patient/1007"
+        },
+        "date": "2026-09-25T12:25:00Z",
+        "recommendation": [
+          {
+            "vaccineCode": [
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/sid/cvx",
+                    "code": "133",
+                    "display": "Pneumococcal conjugate PCV 13"
+                  }
+                ]
+              }
+            ],
+            "targetDisease": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "16814004",
+                  "display": "Pneumococcal infectious disease"
+                }
+              ]
+            },
+            "forecastStatus": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/immunization-recommendation-status",
+                  "code": "due",
+                  "display": "Due"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "ImmunizationRecommendation"
+      }
+    }
+  ]
+}
