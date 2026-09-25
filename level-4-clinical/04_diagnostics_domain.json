@@ -1,0 +1,225 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:bs-cubital-fossa",
+      "resource": {
+        "resourceType": "BodyStructure",
+        "location": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "368208006",
+              "display": "Left median cubital vein"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/1007"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "BodyStructure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:specimen-blood",
+      "resource": {
+        "resourceType": "Specimen",
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "119297000",
+              "display": "Blood specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "collection": {
+          "collector": {
+            "reference": "Practitioner/1006"
+          },
+          "collectedDateTime": "2026-09-25T10:30:00Z",
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "368208006",
+                "display": "Left median cubital vein"
+              }
+            ]
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-troponin",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "42757-5",
+              "display": "Troponin I.cardiac [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "encounter": {
+          "reference": "Encounter/1008"
+        },
+        "effectiveDateTime": "2026-09-25T10:45:00Z",
+        "specimen": {
+          "reference": "urn:uuid:specimen-blood"
+        },
+        "valueQuantity": {
+          "value": 0.02,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        },
+        "referenceRange": [
+          {
+            "high": {
+              "value": 0.04,
+              "unit": "ng/mL",
+              "system": "http://unitsofmeasure.org",
+              "code": "ng/mL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:report-cardiac-panel",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "CH",
+                "display": "Chemistry"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "49563-0",
+              "display": "Cardiac injury biomarkers panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "encounter": {
+          "reference": "Encounter/1008"
+        },
+        "effectiveDateTime": "2026-09-25T10:45:00Z",
+        "issued": "2026-09-25T11:00:00Z",
+        "performer": [
+          {
+            "reference": "Organization/1004"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:specimen-blood"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:obs-troponin"
+          }
+        ],
+        "conclusion": "Cardiac biomarkers within normal limits; acute myocardial infarction unlikely."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imaging-cxr",
+      "resource": {
+        "resourceType": "ImagingStudy",
+        "status": "available",
+        "subject": {
+          "reference": "Patient/1007"
+        },
+        "encounter": {
+          "reference": "Encounter/1008"
+        },
+        "started": "2026-09-25T10:50:00Z",
+        "numberOfSeries": 1,
+        "numberOfInstances": 2,
+        "modality": [
+          {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "DX",
+            "display": "Digital Radiography"
+          }
+        ],
+        "description": "Chest X-ray 2 Views PA and Lateral"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ImagingStudy"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:molseq-cyp2c9",
+      "resource": {
+        "resourceType": "MolecularSequence",
+        "type": "dna",
+        "patient": {
+          "reference": "Patient/1007"
+        },
+        "coordinateSystem": 1,
+        "specimen": {
+          "reference": "urn:uuid:specimen-blood"
+        },
+        "observedSeq": "AGCTAGCTAGCTAGCT"
+      },
+      "request": {
+        "method": "POST",
+        "url": "MolecularSequence"
+      }
+    }
+  ]
+}
